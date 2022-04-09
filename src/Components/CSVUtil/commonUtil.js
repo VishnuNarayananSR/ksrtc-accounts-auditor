@@ -28,7 +28,4 @@ const getValueByHeader = (cellData, workbook, header) => {
   const worksheet = getSheetByIndex(cellData, workbook);
   return worksheet[cellData["total"][header]].v;
 };
-export {
-  readExcel,
-  getValueByHeader,
-};
+export { readExcel, getValueByHeader };
