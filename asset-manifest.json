@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/VishnuNarayananSR.github.io/ksrtc-accounts-auditor/static/css/main.c04aacd5.css",
+    "main.js": "/VishnuNarayananSR.github.io/ksrtc-accounts-auditor/static/js/main.9b5f1c73.js",
+    "index.html": "/VishnuNarayananSR.github.io/ksrtc-accounts-auditor/index.html",
+    "main.c04aacd5.css.map": "/VishnuNarayananSR.github.io/ksrtc-accounts-auditor/static/css/main.c04aacd5.css.map",
+    "main.9b5f1c73.js.map": "/VishnuNarayananSR.github.io/ksrtc-accounts-auditor/static/js/main.9b5f1c73.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c04aacd5.css",
+    "static/js/main.9b5f1c73.js"
+  ]
+}
