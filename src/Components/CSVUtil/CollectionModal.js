@@ -1,10 +1,4 @@
-import {
-  getBusRemttd,
-  getCollection,
-  getOptedKM,
-  getSteeringHours,
-  getValueByHeader,
-} from "./commonUtil";
+import { getValueByHeader } from "./commonUtil";
 import * as configs from "../Configs/cellConfig";
 import MaterialTable from "./MaterialTable";
 const genTableData = (files) => {
