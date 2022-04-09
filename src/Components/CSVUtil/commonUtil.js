@@ -24,37 +24,11 @@ const getSheetByIndex = (cellData, workbook) => {
   return workbook.Sheets[sheetNames[index]];
 };
 
-const getBusRemttd = (cellData, workbook) => {
-  const worksheet = getSheetByIndex(cellData, workbook);
-  return worksheet[cellData["total"]["Buses Remitted"]].v;
-};
-const getCollection = (cellData, workbook) => {
-  const worksheet = getSheetByIndex(cellData, workbook);
-  return worksheet[cellData["total"]["COLLECTION"]].v;
-};
-const getOptedKM = (cellData, workbook) => {
-  const worksheet = getSheetByIndex(cellData, workbook);
-  return worksheet[cellData["total"]["OPTED KM"]].v;
-};
-const getDieselConsumption = (cellData, workbook) => {
-  const worksheet = getSheetByIndex(cellData, workbook);
-  return worksheet[cellData["total"]["DIESEL CONSUMPTION"]].v;
-};
-
-const getSteeringHours = (cellData, workbook) => {
-  const worksheet = getSheetByIndex(cellData, workbook);
-  return worksheet[cellData["total"]["STEERING HOURS"]].v;
-};
-
 const getValueByHeader = (cellData, workbook, header) => {
   const worksheet = getSheetByIndex(cellData, workbook);
   return worksheet[cellData["total"][header]].v;
 };
 export {
   readExcel,
-  getBusRemttd,
-  getCollection,
-  getOptedKM,
-  getSteeringHours,
   getValueByHeader,
 };

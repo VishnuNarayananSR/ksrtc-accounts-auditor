@@ -16,10 +16,10 @@ const genTableData = (files) => {
   let tableData = [];
   Object.entries(configs).forEach(([key, config]) => {
     const workbook = files[key];
-    const busRemitted = getBusRemttd(config, workbook);
-    const collection = getCollection(config, workbook);
-    const optedKM = getOptedKM(config, workbook);
-    const steeringHours = getSteeringHours(config, workbook);
+    const busRemitted = getValueByHeader(config, workbook, "BUSES REMITTED");
+    const collection = getValueByHeader(config, workbook, "COLLECTION");
+    const optedKM = getValueByHeader(config, workbook, "OPTED KM");
+    const steeringHours = getValueByHeader(config, workbook, "STEERING HOURS");
     const target = getValueByHeader(config, workbook, "TARGET");
     totalBusesRemitted += busRemitted;
     totalCollection += collection;
