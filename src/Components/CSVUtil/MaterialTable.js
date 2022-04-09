@@ -11,7 +11,7 @@ export default function MaterialTable({ headers, rows }) {
       <TableContainer>
         <Table>
           <TableHead>
-            <TableRow>
+            <TableRow sx={{backgroundColor:"var(--color-tertiary)"}}>
               {headers.map((header) => (
                 <TableCell>{header.toUpperCase()}</TableCell>
               ))}

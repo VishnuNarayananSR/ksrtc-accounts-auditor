@@ -5,22 +5,30 @@
     align-items: center;
     justify-content: center;
     background-color: #FEFEFE;
-    margin: 5%;
+    margin: 1rem;
     padding: 20px;
 }
 
 
 .file-input__controls {
-  gap: 1rem;
+  text-align: center;
   margin-bottom: 1rem;
-  text-align: left;
 }
 
 .file-input__control label {
-    margin-left: -0.25rem;
-    padding: 0 0.25rem;
-    margin:10px;
-    font-size: 0.875rem;
+  color: var(--color-text-dark);
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  padding:5px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.file-input__control label:active, label:hover{
+  color:#1e88e5;
 }
 
 .file-input__control input {
@@ -36,7 +44,7 @@
 }
 
 .submit-btn{
-    background-color: #f9aa33;
+    background-color: var(--color-secondary);
     padding: 10px;
     font-size: 1rem;
     cursor: pointer;
