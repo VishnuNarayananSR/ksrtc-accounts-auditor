@@ -1,7 +1,7 @@
 export const southFile = {
   zone: "South",
   total: {
-    "Buses Remitted": "DB48",
+    "BUSES REMITTED": "DB48",
     "COLLECTION": "DC48",
     "OPTED KM": "DD48",
     "DIESEL CONSUMPTION": "DG48",
@@ -13,7 +13,7 @@ export const southFile = {
 export const centralFile = {
   zone: "Central",
   total: {
-    "Buses Remitted": "DB45",
+    "BUSES REMITTED": "DB45",
     "COLLECTION": "DC45",
     "OPTED KM": "DD45",
     "DIESEL CONSUMPTION": "",
@@ -25,7 +25,7 @@ export const centralFile = {
 export const northFile = {
   zone: "North",
   total: {
-    "Buses Remitted": "DB31",
+    "BUSES REMITTED": "DB31",
     "COLLECTION": "DC31",
     "OPTED KM": "DD31",
     "DIESEL CONSUMPTION": "DG31",
