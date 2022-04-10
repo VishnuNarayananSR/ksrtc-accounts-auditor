@@ -29,3 +29,8 @@ nav {
   box-shadow: 0rem 1rem 1rem 0.2rem rgba(0, 0, 0, 0.2);
   position: relative;
 }
+#title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}

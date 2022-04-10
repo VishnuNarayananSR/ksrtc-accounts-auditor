@@ -15,7 +15,7 @@ function App() {
         }`}
       </style>
       <nav style={{ background: "var(--color-primary)" }}>
-        KSRTC Collections Auditor
+        <h1 id="title">KSRTC Collections Auditor</h1>
       </nav>
       <UploadForm></UploadForm>
     </>
