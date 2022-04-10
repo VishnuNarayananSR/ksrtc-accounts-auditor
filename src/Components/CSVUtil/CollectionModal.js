@@ -1,6 +1,9 @@
 import { getValueByHeader } from "./CommonUtil";
 import * as configs from "../Configs/cellConfig";
 import MaterialTable from "../UI/MaterialTable";
+import DialogModal from "../UI/DialogModal";
+import { useContext } from "react";
+import FormContext from "../Context/FormContext";
 const genTableData = (files) => {
   let totalCollection = 0;
   let totalBusesRemitted = 0;
@@ -49,18 +52,24 @@ const genTableData = (files) => {
 };
 
 const CollectionModal = ({ files }) => {
-  const tData = genTableData(files);
-  const tHeaders = [
-    "zone",
-    "busRemitted",
-    "collection",
-    "optedKM",
-    "epkm",
-    "epb",
-    "steeringHours",
-    "achievement",
-  ];
-  return <MaterialTable headers={tHeaders} rows={tData}></MaterialTable>;
+  const setShowForm = useContext(FormContext);
+  try{
+    const tData = genTableData(files);
+    const tHeaders = [
+      "zone",
+      "busRemitted",
+      "collection",
+      "optedKM",
+      "epkm",
+      "epb",
+      "steeringHours",
+      "achievement",
+    ];
+    return <MaterialTable headers={tHeaders} rows={tData}></MaterialTable>;
+  }
+  catch(e){
+    return <DialogModal title="Error" description="Inappropriate files received." onClose={() => setShowForm(true)}/>
+  }
 };
 
 export default CollectionModal;
