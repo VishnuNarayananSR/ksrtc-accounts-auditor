@@ -1,6 +1,6 @@
-import { getValueByHeader } from "./commonUtil";
+import { getValueByHeader } from "./CommonUtil";
 import * as configs from "../Configs/cellConfig";
-import MaterialTable from "./MaterialTable";
+import MaterialTable from "../UI/MaterialTable";
 const genTableData = (files) => {
   let totalCollection = 0;
   let totalBusesRemitted = 0;

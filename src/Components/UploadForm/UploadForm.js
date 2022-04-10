@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./UploadForm.css";
-import { readExcel } from "../CSVUtil/commonUtil";
+import { readExcel } from "../CSVUtil/CommonUtil";
 import CollectionModal from "../CSVUtil/CollectionModal";
 import { Card } from "@mui/material";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
