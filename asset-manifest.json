@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ksrtc-accounts-auditor/static/css/main.c04aacd5.css",
-    "main.js": "/ksrtc-accounts-auditor/static/js/main.9b5f1c73.js",
+    "main.css": "/ksrtc-accounts-auditor/static/css/main.a3d99da9.css",
+    "main.js": "/ksrtc-accounts-auditor/static/js/main.f7df196b.js",
     "index.html": "/ksrtc-accounts-auditor/index.html",
-    "main.c04aacd5.css.map": "/ksrtc-accounts-auditor/static/css/main.c04aacd5.css.map",
-    "main.9b5f1c73.js.map": "/ksrtc-accounts-auditor/static/js/main.9b5f1c73.js.map"
+    "main.a3d99da9.css.map": "/ksrtc-accounts-auditor/static/css/main.a3d99da9.css.map",
+    "main.f7df196b.js.map": "/ksrtc-accounts-auditor/static/js/main.f7df196b.js.map"
   },
   "entrypoints": [
-    "static/css/main.c04aacd5.css",
-    "static/js/main.9b5f1c73.js"
+    "static/css/main.a3d99da9.css",
+    "static/js/main.f7df196b.js"
   ]
 }
