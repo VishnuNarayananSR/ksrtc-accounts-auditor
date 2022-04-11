@@ -21,10 +21,10 @@ const UploadForm = () => {
 
   const formCardStyle = {
     margin: "3rem 1.5rem",
-    "@media only screen and (min-width: 768px)" : {
+    "@media only screen and (min-width: 768px)": {
       margin: "5% 30%",
-    }
-  }
+    },
+  };
 
   return (
     <FormContext.Provider value={setShowForm}>

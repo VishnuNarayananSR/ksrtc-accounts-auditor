@@ -4,6 +4,8 @@ import MaterialTable from "../UI/MaterialTable";
 import DialogModal from "../UI/DialogModal";
 import { useContext } from "react";
 import FormContext from "../Context/FormContext";
+import MaterialButton from "../UI/MaterialButton";
+import { Box, Paper } from "@mui/material";
 const genTableData = (files) => {
   let totalCollection = 0;
   let totalBusesRemitted = 0;
@@ -53,7 +55,7 @@ const genTableData = (files) => {
 
 const CollectionModal = ({ files }) => {
   const setShowForm = useContext(FormContext);
-  try{
+  try {
     const tData = genTableData(files);
     const tHeaders = [
       "zone",
@@ -65,10 +67,25 @@ const CollectionModal = ({ files }) => {
       "steeringHours",
       "achievement",
     ];
-    return <MaterialTable headers={tHeaders} rows={tData}></MaterialTable>;
-  }
-  catch(e){
-    return <DialogModal title="Error" description="Inappropriate files received." onClose={() => setShowForm(true)}/>
+    const boxStyle = {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    }
+    return (
+      <Box sx={boxStyle}>
+        <MaterialTable headers={tHeaders} rows={tData}></MaterialTable>
+        <MaterialButton onClick={() => setShowForm(true)}>Back</MaterialButton>
+      </Box>
+    );
+  } catch (e) {
+    return (
+      <DialogModal
+        title="Error"
+        description="Inappropriate files received."
+        onClose={() => setShowForm(true)}
+      />
+    );
   }
 };
 

@@ -7,7 +7,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 export default function MaterialTable({ headers, rows }) {
   return (
-    <Paper sx={{ margin: "5%" }}>
+    <Paper sx={{ margin: "5% 0" }}>
       <TableContainer>
         <Table>
           <TableHead>
