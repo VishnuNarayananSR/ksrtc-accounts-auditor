@@ -70,12 +70,12 @@ const CollectionModal = ({ files }) => {
     const boxStyle = {
       display: "flex",
       flexDirection: "column",
-      alignItems: "center",
-    }
+      margin: "auto",
+    };
     return (
-      <Box sx={boxStyle}>
+      <Box style={boxStyle}>
         <MaterialTable headers={tHeaders} rows={tData}></MaterialTable>
-        <MaterialButton onClick={() => setShowForm(true)}>Back</MaterialButton>
+      <MaterialButton style={{alignSelf: "center"}} onClick={() => setShowForm(true)}>Back</MaterialButton>
       </Box>
     );
   } catch (e) {
