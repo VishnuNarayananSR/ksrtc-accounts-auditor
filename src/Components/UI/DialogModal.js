@@ -17,6 +17,9 @@ const DialogModal = (props) => {
       margin: "0 85%",
       boxSizing: "border-box",
     },
+    "@media (maxWidth: 600px)": {
+      width: "90vw",
+    }
   };
   return (
     <Modal

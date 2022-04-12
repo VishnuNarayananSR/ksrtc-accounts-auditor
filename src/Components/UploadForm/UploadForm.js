@@ -1,11 +1,9 @@
 import { useState } from "react";
-import "./UploadForm.css";
-import { readExcel } from "../CSVUtil/CommonUtil";
 import CollectionModal from "../CSVUtil/CollectionModal";
 import { Card } from "@mui/material";
-import FileUploadIcon from "@mui/icons-material/FileUpload";
 import FormContext from "../Context/FormContext";
 import MaterialButton from "../UI/MaterialButton";
+import FileInput from "./FileInput";
 
 const UploadForm = () => {
   const [centralFile, setCentralFile] = useState(null);
@@ -21,73 +19,32 @@ const UploadForm = () => {
 
   const formCardStyle = {
     margin: "3rem 1.5rem",
+    borderRadius: "5px",
     "@media only screen and (min-width: 768px)": {
-      margin: "5% 30%",
+      margin: "5% 33%",
     },
   };
 
+  const formStyle = {
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: "center",
+    margin: "1rem",
+    padding: "1rem",
+  }
   return (
     <FormContext.Provider value={setShowForm}>
       {showForm ? (
-        <Card sx={formCardStyle}>
-          <form className="upload-form" onSubmit={formSubmitHandler}>
+        <Card sx={formCardStyle} elevation={5}>
+          <form style={formStyle} onSubmit={formSubmitHandler}>
             <div className="file-input__controls">
-              <div className="file-input__control">
-                <label style={centralFile && { color: "var(--color-primary)" }}>
-                  <FileUploadIcon sx={{ color: "var(--color-tertiary)" }} />
-                  Upload Central Zone File
-                  <input
-                    onChange={(e) => {
-                      readExcel(e.target.files[0])
-                        .then(setCentralFile)
-                        .catch(alert);
-                    }}
-                    style={{ display: "none" }}
-                    type="file"
-                    required
-                    name="central-file"
-                    id="central-file"
-                  />
-                </label>
-              </div>
-              <div className="file-input__control">
-                <label style={northFile && { color: "var(--color-primary)" }}>
-                  <FileUploadIcon sx={{ color: "var(--color-tertiary)" }} />
-                  Upload North Zone File
-                  <input
-                    onChange={(e) => {
-                      readExcel(e.target.files[0])
-                        .then(setNorthFile)
-                        .catch(alert);
-                    }}
-                    style={{ display: "none" }}
-                    type="file"
-                    required
-                    name="north-file"
-                    id="north-file"
-                  />
-                </label>
-              </div>
-              <div className="file-input__control">
-                <label style={southFile && { color: "var(--color-primary)" }}>
-                  <FileUploadIcon sx={{ color: "var(--color-tertiary)" }} />
-                  Upload South Zone File
-                  <input
-                    onChange={(e) => {
-                      readExcel(e.target.files[0])
-                        .then(setSouthFile)
-                        .catch(alert);
-                    }}
-                    style={{ display: "none" }}
-                    type="file"
-                    required
-                    name="south-file"
-                    id="south-file"
-                  />
-                </label>
-              </div>
+              <FileInput label="Upload Central Zone File" id="central" fileStateHandler={setCentralFile} />
+              <FileInput label="Upload North Zone File" id="north" fileStateHandler={setNorthFile} />
+              <FileInput label="Upload South Zone File" id="south" fileStateHandler={setSouthFile} />
             </div>
-            <MaterialButton type="Submit">Submit</MaterialButton>
+            <MaterialButton style= {{marginTop: "0.3rem"}} type="Submit">Submit</MaterialButton>
           </form>
         </Card>
       ) : (

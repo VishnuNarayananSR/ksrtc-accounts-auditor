@@ -5,7 +5,7 @@ import DialogModal from "../UI/DialogModal";
 import { useContext } from "react";
 import FormContext from "../Context/FormContext";
 import MaterialButton from "../UI/MaterialButton";
-import { Box, Paper } from "@mui/material";
+import { Box } from "@mui/material";
 const genTableData = (files) => {
   let totalCollection = 0;
   let totalBusesRemitted = 0;
