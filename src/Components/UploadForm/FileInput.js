@@ -1,4 +1,4 @@
-import { Box, Input} from "@mui/material";
+import { Box, InputLabel, Input} from "@mui/material";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import { readExcel } from "../CSVUtil/CommonUtil";
 import { useState } from "react";
@@ -17,6 +17,13 @@ const FileInput = (props) => {
     width: "15em", 
     overflow: "hidden",
     textOverflow: "ellipsis",
+    transition: "all 0.3s ease 0s",
+    "&:hover": {
+      backgroundColor: "var(--color-tertiary)",
+    },
+    "&:active": {
+      transform: "translateY(3px)",
+    }
   };
   const [labelText, setLabelText] = useState(props.label);
   const fileInputChangeHandler = (e) => {
@@ -29,7 +36,7 @@ const FileInput = (props) => {
 
   return (
     <Box>
-      <label style={labelStyle}>
+      <InputLabel sx={labelStyle}>
         <FileUploadIcon sx={{ color: "var(--color-tertiary)" }} />
         {labelText}
         <Input
@@ -39,7 +46,7 @@ const FileInput = (props) => {
           required
           id="props.id"
         />
-      </label>
+      </InputLabel>
     </Box>
   );
 };
