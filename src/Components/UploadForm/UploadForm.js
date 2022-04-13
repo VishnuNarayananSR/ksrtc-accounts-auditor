@@ -40,9 +40,9 @@ const UploadForm = () => {
         <Card sx={formCardStyle} elevation={5}>
           <form style={formStyle} onSubmit={formSubmitHandler}>
             <div className="file-input__controls">
-              <FileInput label="Upload Central Zone File" id="central" fileStateHandler={setCentralFile} />
-              <FileInput label="Upload North Zone File" id="north" fileStateHandler={setNorthFile} />
-              <FileInput label="Upload South Zone File" id="south" fileStateHandler={setSouthFile} />
+              <FileInput label="Upload Central Zone File" id="central-input" fileStateHandler={setCentralFile} />
+              <FileInput label="Upload North Zone File" id="north-input" fileStateHandler={setNorthFile} />
+              <FileInput label="Upload South Zone File" id="south-inputx" fileStateHandler={setSouthFile} />
             </div>
             <MaterialButton style= {{marginTop: "0.3rem"}} type="Submit">Submit</MaterialButton>
           </form>

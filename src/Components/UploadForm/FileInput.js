@@ -44,7 +44,7 @@ const FileInput = (props) => {
           style={{ display: "none" }}
           type="file"
           required
-          id="props.id"
+          id={props.id}
         />
       </InputLabel>
     </Box>
