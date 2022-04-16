@@ -12,17 +12,26 @@ const genTableData = (files) => {
   let totalOptedKM = 0;
   let totalSteeringHours = 0;
   let totalTarget = 0;
+  let totalPassengers = 0;
+  let totalTrips = 0;
+  let totalDiesel = 0;
   let tableData = [];
   Object.entries(configs).forEach(([key, config]) => {
     const workbook = files[key];
     const busRemitted = getValueByHeader(config, workbook, "BUSES REMITTED");
     const collection = getValueByHeader(config, workbook, "COLLECTION");
     const optedKM = getValueByHeader(config, workbook, "OPTED KM");
+    const passengers = getValueByHeader(config, workbook, "PASSENGERS");
+    const trips = getValueByHeader(config, workbook, "TRIPS");
+    const diesel = getValueByHeader(config, workbook, "DIESEL CONSUMPTION");
     const steeringHours = getValueByHeader(config, workbook, "STEERING HOURS");
     const target = getValueByHeader(config, workbook, "TARGET");
     totalBusesRemitted += busRemitted;
     totalCollection += collection;
     totalOptedKM += optedKM;
+    totalPassengers += passengers;
+    totalTrips += trips;
+    totalDiesel += diesel;
     totalSteeringHours += steeringHours;
     totalTarget += target;
     tableData.push({
@@ -31,6 +40,9 @@ const genTableData = (files) => {
       collection,
       optedKM,
       epkm: optedKM ? (collection / optedKM).toFixed(2) : 0,
+      passengers,
+      trips,
+      "diesel consumed": diesel.toFixed(0),
       epb: busRemitted ? (collection / busRemitted).toFixed(0) : 0,
       steeringHours: steeringHours ? steeringHours.toFixed(0) : 0,
       achievement: target ? ((collection / target) * 100).toFixed(2) : 0,
@@ -41,6 +53,9 @@ const genTableData = (files) => {
     busRemitted: totalBusesRemitted,
     collection: totalCollection,
     optedKM: totalOptedKM,
+    passengers: totalPassengers,
+    trips: totalTrips,
+    "diesel consumed": totalDiesel.toFixed(0),
     epkm: totalOptedKM ? (totalCollection / totalOptedKM).toFixed(2) : 0,
     epb: totalBusesRemitted
       ? (totalCollection / totalBusesRemitted).toFixed(0)
@@ -62,6 +77,9 @@ const CollectionModal = ({ files }) => {
       "busRemitted",
       "collection",
       "optedKM",
+      "passengers",
+      "trips",
+      "diesel consumed",
       "epkm",
       "epb",
       "steeringHours",
@@ -74,6 +92,7 @@ const CollectionModal = ({ files }) => {
     };
     return (
       <Box style={boxStyle}>
+        {console.log({tHeaders, tData})}
         <MaterialTable headers={tHeaders} rows={tData}></MaterialTable>
       <MaterialButton style={{alignSelf: "center"}} onClick={() => setShowForm(true)}>Back</MaterialButton>
       </Box>
