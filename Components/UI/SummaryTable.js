@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Box, LinearProgress } from "@mui/material";
 import MaterialTable from "./MaterialTable";
 import { format } from "date-fns";
 import {
@@ -56,7 +57,9 @@ const SummaryTable = () => {
       rows={viewData}
     ></MaterialTable>
   ) : (
-    "loading ..."
+    <Box sx={{color:"var(--color-primary)"}}>
+      <LinearProgress color="inherit"/>
+    </Box>
   );
 };
 
