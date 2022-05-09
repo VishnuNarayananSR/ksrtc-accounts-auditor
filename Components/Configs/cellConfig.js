@@ -9,6 +9,7 @@ export const southFile = {
     "DIESEL CONSUMPTION": "DG48",
     "STEERING HOURS": "DK48",
     "TARGET": "DN48",
+    "DOCK": "DL48",
   },
   sheetIndex: 0,
 };
@@ -23,6 +24,7 @@ export const centralFile = {
     "DIESEL CONSUMPTION": "DG45",
     "STEERING HOURS": "DK45",
     "TARGET": "DN45",
+    "DOCK": "DL45",
   },
   sheetIndex: -1,
 };
@@ -37,6 +39,7 @@ export const northFile = {
     "DIESEL CONSUMPTION": "DG31",
     "STEERING HOURS": "DK31",
     "TARGET": "DN31",
+    "DOCK": "DL31",
   },
   sheetIndex: 0,
 };

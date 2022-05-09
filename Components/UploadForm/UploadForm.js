@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CollectionModal from "../CSVUtil/CollectionModal";
-import { Card } from "@mui/material";
+import CollectionTable from "../UI/CollectionTable";
+import { Card} from "@mui/material";
 import FormContext from "../Context/FormContext";
 import MaterialButton from "../UI/MaterialButton";
 import FileInput from "./FileInput";
@@ -28,27 +28,44 @@ const UploadForm = () => {
   const formStyle = {
     display: "flex",
     flexDirection: "column",
-    flexWrap: 'wrap',
-    alignItems: 'center',
+    flexWrap: "wrap",
+    alignItems: "center",
     justifyContent: "center",
     margin: "1rem",
     padding: "1rem",
-  }
+  };
   return (
     <FormContext.Provider value={setShowForm}>
       {showForm ? (
         <Card sx={formCardStyle} elevation={5}>
           <form style={formStyle} onSubmit={formSubmitHandler}>
             <div className="file-input__controls">
-              <FileInput label="Upload Central Zone File" id="central-input" fileStateHandler={setCentralFile} />
-              <FileInput label="Upload North Zone File" id="north-input" fileStateHandler={setNorthFile} />
-              <FileInput label="Upload South Zone File" id="south-inputx" fileStateHandler={setSouthFile} />
+              <FileInput
+                label="Upload Central Zone File"
+                id="central-input"
+                fileStateHandler={setCentralFile}
+              />
+              <FileInput
+                label="Upload North Zone File"
+                id="north-input"
+                fileStateHandler={setNorthFile}
+              />
+              <FileInput
+                label="Upload South Zone File"
+                id="south-inputx"
+                fileStateHandler={setSouthFile}
+              />
             </div>
-            <MaterialButton style= {{marginTop: "0.3rem"}} type="Submit">Submit</MaterialButton>
+            <MaterialButton style={{ marginTop: "0.3rem" }} type="Submit">
+              Submit
+            </MaterialButton>
           </form>
         </Card>
       ) : (
-        <CollectionModal files={{ southFile, centralFile, northFile }} />
+        <>
+          <CollectionTable files={{ southFile, centralFile, northFile }} />
+
+        </>
       )}
     </FormContext.Provider>
   );

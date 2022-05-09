@@ -1,16 +1,13 @@
-import { Card, Modal, Typography } from "@mui/material";
-import { useState } from "react";
+import { Modal, Stack, Card, Typography } from "@mui/material";
 import MaterialButton from "./MaterialButton";
 
-const DialogModal = (props) => {
-  const [open, setOpen] = useState(true);
+const ActionModal = (props) => {
   const style = {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 400,
-    bgcolor: "background.paper",
     boxShadow: 24,
     p: 4,
     button: {
@@ -19,14 +16,13 @@ const DialogModal = (props) => {
     },
     "@media (maxWidth: 600px)": {
       width: "90vw",
-    }
+    },
   };
   return (
     <Modal
-      open={open}
+      open={true}
       onClose={() => {
-        setOpen(false);
-        props.onClose();
+        props.handleClose();
       }}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
@@ -35,20 +31,20 @@ const DialogModal = (props) => {
         <Typography id="modal-modal-title" variant="h6" component="h2">
           {props.title}
         </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          {props.description}
-        </Typography>
+        <Stack spacing={2} margin={2}>
+          {props.children}
+        </Stack>
         <MaterialButton
           onClick={() => {
-            setOpen(false);
-            props.onClose();
+            props.handleClose();
+            props.actionHandler();
           }}
         >
-          OK
+          {props.actionText}
         </MaterialButton>
       </Card>
     </Modal>
   );
 };
 
-export default DialogModal;
+export default ActionModal;

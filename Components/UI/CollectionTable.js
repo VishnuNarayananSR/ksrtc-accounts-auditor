@@ -1,11 +1,13 @@
-import { getValueByHeader } from "./CommonUtil";
+import { getValueByHeader } from "../CSVUtil/CommonUtil";
 import * as configs from "../Configs/cellConfig";
-import MaterialTable from "../UI/MaterialTable";
-import DialogModal from "../UI/DialogModal";
-import { useContext } from "react";
+import MaterialTable from "./MaterialTable";
+import DialogModal from "./DialogModal";
+import { useContext, useState } from "react";
 import FormContext from "../Context/FormContext";
-import MaterialButton from "../UI/MaterialButton";
-import { Box } from "@mui/material";
+import MaterialButton from "./MaterialButton";
+import { Box, Grid } from "@mui/material";
+import SaveActionModal from "./SaveActionModal";
+import { calcEPKM, calcEPB, calcAchievement } from "../../util/calc";
 const genTableData = (files) => {
   let totalCollection = 0;
   let totalBusesRemitted = 0;
@@ -39,13 +41,13 @@ const genTableData = (files) => {
       busRemitted,
       collection,
       optedKM,
-      epkm: optedKM ? (collection / optedKM).toFixed(2) : 0,
+      epkm: calcEPKM(optedKM, collection),
       passengers,
       trips,
       "diesel consumed": diesel.toFixed(0),
-      epb: busRemitted ? (collection / busRemitted).toFixed(0) : 0,
+      epb: calcEPB(busRemitted, collection),
       steeringHours: steeringHours ? steeringHours.toFixed(0) : 0,
-      achievement: target ? ((collection / target) * 100).toFixed(2) : 0,
+      achievement: calcAchievement(target, collection),
     });
   });
   tableData.push({
@@ -68,7 +70,8 @@ const genTableData = (files) => {
   return tableData;
 };
 
-const CollectionModal = ({ files }) => {
+const CollectionTable = ({ files }) => {
+  const [showSaveModal, setShowSaveModal] = useState(false);
   const setShowForm = useContext(FormContext);
   try {
     const tData = genTableData(files);
@@ -92,12 +95,31 @@ const CollectionModal = ({ files }) => {
     };
     return (
       <Box style={boxStyle}>
-        {console.log({tHeaders, tData})}
         <MaterialTable headers={tHeaders} rows={tData}></MaterialTable>
-      <MaterialButton style={{alignSelf: "center"}} onClick={() => setShowForm(true)}>Back</MaterialButton>
+        <Grid container spacing={1} justifyContent="center">
+          <Grid item>
+            <MaterialButton onClick={() => setShowForm(true)}>
+              Back
+            </MaterialButton>
+          </Grid>
+
+          <Grid item>
+            <MaterialButton
+              onClick={() => {
+                setShowSaveModal(true);
+              }}
+            >
+              Save
+            </MaterialButton>
+          </Grid>
+        </Grid>
+        {showSaveModal && (
+          <SaveActionModal tableTotals={tData[3]} handleClose={() => setShowSaveModal(false)} />
+        )}
       </Box>
     );
   } catch (e) {
+    {console.log(e.message)}
     return (
       <DialogModal
         title="Error"
@@ -108,4 +130,4 @@ const CollectionModal = ({ files }) => {
   }
 };
 
-export default CollectionModal;
+export default CollectionTable;
