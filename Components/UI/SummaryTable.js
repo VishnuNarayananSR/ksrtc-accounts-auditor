@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import MaterialTable from "./MaterialTable";
+import { format } from "date-fns";
 import {
   calcEPB,
   calcEPKM,
@@ -32,7 +33,7 @@ const SummaryTable = () => {
   ];
   const viewData = summary.map((record) => {
     return {
-      Date: record.date,
+      Date: format(new Date(record.date), "dd-MMM-yyyy"),
       "Collection*": convertToLakhs(record.totalCollection),
       "Passengers*": convertToLakhs(record.passengers),
       "Diesel in Litres": record.diesel,

@@ -3,9 +3,8 @@ import { Schema, model, models } from "mongoose";
 const collectionSchema = new Schema({
   date: {
     type: Date,
-    default: () => Date.now(),
+    default: Date.now,
     required: true,
-    get: (date) => date.toLocaleDateString(),
   },
   totalCollection: {
     type: Number,
