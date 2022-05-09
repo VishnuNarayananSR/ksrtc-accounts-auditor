@@ -41,7 +41,7 @@ const SummaryTable = () => {
       "Diesel Price(day)": record.dieselPrice,
       "Diesel Value*": convertToLakhs(record.diesel * record.dieselPrice),
       "Diesel/Collection %": (
-        (record.diesel / record.totalCollection) *
+        ((record.diesel * record.dieselPrice) / record.totalCollection) *
         100
       ).toFixed(2),
       "Operated KM*": convertToLakhs(record.optedKM),
@@ -57,8 +57,8 @@ const SummaryTable = () => {
       rows={viewData}
     ></MaterialTable>
   ) : (
-    <Box sx={{color:"var(--color-primary)"}}>
-      <LinearProgress color="inherit"/>
+    <Box sx={{ color: "var(--color-primary)" }}>
+      <LinearProgress color="inherit" />
     </Box>
   );
 };
