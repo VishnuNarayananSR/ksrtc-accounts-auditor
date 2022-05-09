@@ -4,9 +4,11 @@ import { MobileDatePicker } from "@mui/x-date-pickers";
 import { TextField, InputAdornment } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { add } from "date-fns";
 
 const SaveActionModal = (props) => {
-  const [date, setDate] = useState(new Date());
+  const tMinus1Date = new Date(add(new Date(), { days: -1 }));
+  const [date, setDate] = useState(tMinus1Date);
   const [dieselPrice, setDieselPrice] = useState(0);
   useEffect(() => {
     fetch("/api/collection/diesel-price")
